@@ -24,7 +24,6 @@ AI is integrated directly into the workflow to reduce matchmaker friction. When 
 ### Assumptions Made
 1. **Mock Data:** I assumed that populating the database with exactly 100+ dummy profiles (`data/clients.json`) via a `/api/seed` route would be the cleanest way to simulate a live matchmaking pool without requiring reviewers to manually create users.
 2. **Heterosexual Matching MVP:** For the scope of this MVP, the algorithm assumes heterosexual matching, immediately filtering out same-gender profiles before running the intensive scoring logic.
-3. **Pipeline Stages:** I assumed a simplified 4-stage operational funnel (`New` -> `Profile Shared` -> `Active` -> `Matched`) provides the most clarity for matchmakers tracking their roster.
 
 ---
 
@@ -42,5 +41,3 @@ AI is integrated directly into the workflow to reduce matchmaker friction. When 
    npm run dev
    ```
 
-## 🔐 Ownership & License
-This project was conceptualized, designed, and developed entirely by **Mohit Sen**. All modules, logic, and UI components are 100% original work submitted for project evaluation.
