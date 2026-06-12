@@ -30,7 +30,7 @@ export default function DashboardPage() {
     const totalClients = clients.length;
     const newClients = clients.filter(c => c.status === 'New').length;
     const profileShared = clients.filter(c => c.status === 'Profile Shared').length;
-    const introSent = clients.filter(c => c.status === 'Intro Sent').length;
+    const activeClients = clients.filter(c => c.status === 'Active').length;
 
     const recentClients = [...clients].reverse().slice(0, 3); // Just taking the last 3 for recent
 
@@ -92,9 +92,9 @@ export default function DashboardPage() {
                             </div>
                             <div className="flex items-center gap-3 text-emerald-400 mb-2">
                                 <TrendUp size={20} weight="fill" />
-                                <span className="font-semibold text-sm tracking-wider uppercase">Active Intros</span>
+                                <span className="font-semibold text-sm tracking-wider uppercase">Active Matches</span>
                             </div>
-                            <div className="text-4xl font-bold text-white font-heading">{introSent}</div>
+                            <div className="text-4xl font-bold text-white font-heading">{activeClients}</div>
                         </div>
                     </div>
 
@@ -136,16 +136,16 @@ export default function DashboardPage() {
                                     </div>
                                 </div>
 
-                                {/* Stage 3: Intro Sent */}
+                                {/* Stage 3: Active */}
                                 <div>
                                     <div className="flex justify-between text-sm mb-2">
-                                        <span className="text-emerald-400 font-medium">Mutual Intro Sent</span>
-                                        <span className="text-white font-bold">{introSent}</span>
+                                        <span className="text-emerald-400 font-medium">Active Profiles</span>
+                                        <span className="text-white font-bold">{activeClients}</span>
                                     </div>
                                     <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
                                         <div
                                             className="bg-gradient-to-r from-emerald-600 to-emerald-400 h-full rounded-full"
-                                            style={{ width: `${totalClients > 0 ? (introSent / totalClients) * 100 : 0}%` }}
+                                            style={{ width: `${totalClients > 0 ? (activeClients / totalClients) * 100 : 0}%` }}
                                         ></div>
                                     </div>
                                 </div>
