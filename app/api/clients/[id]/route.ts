@@ -1,18 +1,19 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import Profile from '@/lib/models/Profile';
 
 export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await dbConnect();
     const { status } = await request.json();
+    const { id } = await params;
     
     // We expect the id param from the URL path
     const updatedClient = await Profile.findOneAndUpdate(
-      { id: params.id }, 
+      { id: id }, 
       { status }, 
       { new: true }
     );
